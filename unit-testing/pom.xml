@@ -7,6 +7,7 @@
     <groupId>com.unison.tiles</groupId>
     <artifactId>unit-testing</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
     <dependencies>
         <dependency>
@@ -31,12 +32,14 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>2.16</version>
+                    <inherited>true</inherited>
                 </plugin>
                 <!-- collect code-coverage -->
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>cobertura-maven-plugin</artifactId>
                     <version>2.5.2</version>
+                    <inherited>true</inherited>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -48,6 +51,7 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>cobertura-maven-plugin</artifactId>
                 <version>2.5.2</version>
+                <inherited>true</inherited>
                 <configuration>
                     <check>true</check>
                     <formats>

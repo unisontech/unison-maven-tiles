@@ -7,11 +7,12 @@
     <groupId>com.unison.tiles</groupId>
     <artifactId>java-compiler</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
     <properties>
-        <java.version>1.6</java.version>
-        <compile.debug>false</compile.debug>
-        <compile.optimize>true</compile.optimize>
+        <compile.plugin.java.version>1.6</compile.plugin.java.version>
+        <compile.plugin.debug>false</compile.plugin.debug>
+        <compile.plugin.optimize>true</compile.plugin.optimize>
     </properties>
 
 
@@ -22,12 +23,22 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>
+                <inherited>true</inherited>
                 <configuration>
-                    <compilerVersion>${java.version}</compilerVersion>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    <optimize>${compile.optimize}</optimize>
-                    <debug>${compile.debug}</debug>
+                    <compilerVersion>${compile.plugin.java.version}</compilerVersion>
+                    <source>${compile.plugin.java.version}</source>
+                    <target>${compile.plugin.java.version}</target>
+                    <testSource>${compile.plugin.java.version}</testSource>
+                    <testTarget>${compile.plugin.java.version}</testTarget>
+                    <optimize>${compile.plugin.optimize}</optimize>
+                    <debug>${compile.plugin.debug}</debug>
+                    <showDeprecation>true</showDeprecation>
+                    <showWarnings>true</showWarnings>
+                    <useIncrementalCompilation>true</useIncrementalCompilation>
+                    <fileExtensions>
+                        <extension>.class</extension>
+                        <extension>.java</extension>
+                    </fileExtensions>
                 </configuration>
             </plugin>
             <plugin>
@@ -35,6 +46,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
                 <version>2.2.1</version>
+                <inherited>true</inherited>
                 <executions>
                     <execution>
                         <id>attach-sources</id>

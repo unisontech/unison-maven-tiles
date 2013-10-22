@@ -7,9 +7,10 @@
     <groupId>com.unison.tiles</groupId>
     <artifactId>statical-analysis</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
     <properties>
-        <java.version>1.6</java.version>
+        <compile.plugin.java.version>1.6</compile.plugin.java.version>
     </properties>
 
     <reporting>
@@ -21,9 +22,10 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>3.0.1</version>
+                <inherited>true</inherited>
                 <configuration>
                     <format>xml</format>
-                    <targetJdk>${java.version}</targetJdk>
+                    <targetJdk>${compile.plugin.java.version}</targetJdk>
                 </configuration>
             </plugin>
             <plugin>
@@ -32,9 +34,10 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>findbugs-maven-plugin</artifactId>
                 <version>2.5.2</version>
+                <inherited>true</inherited>
                 <configuration>
                     <xmlOutput>true</xmlOutput>
-                    <findbugsXmlOutput>true</findbugsXmlOutput>z
+                    <findbugsXmlOutput>true</findbugsXmlOutput>
                     <xmlOutputDirectory>target/site</xmlOutputDirectory>
                 </configuration>
             </plugin>
@@ -44,6 +47,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jxr-plugin</artifactId>
                 <version>2.3</version>
+                <inherited>true</inherited>
             </plugin>
         </plugins>
     </reporting>
