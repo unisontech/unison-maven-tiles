@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.unison.tiles</groupId>
+    <artifactId>statical-analysis</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <reporting>
+        <plugins>
+            <plugin>
+                <!-- Statical analysis to find most common bugs in java code -->
+                <!-- Additionally it includes CPD, the copy-paste-detector -->
+                <!-- SEE http://pmd.sourceforge.net/ -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.0.1</version>
+                <configuration>
+                    <format>xml</format>
+                    <targetJdk>${java.version}</targetJdk>
+                </configuration>
+            </plugin>
+            <plugin>
+                <!-- Statical analysis to find most common bugs in java code -->
+                <!-- SEE http://findbugs.sourceforge.net/ -->
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>2.5.2</version>
+                <configuration>
+                    <xmlOutput>true</xmlOutput>
+                    <findbugsXmlOutput>true</findbugsXmlOutput>z
+                    <xmlOutputDirectory>target/site</xmlOutputDirectory>
+                </configuration>
+            </plugin>
+            <plugin>
+                <!-- produces a cross-reference of the project's sources. -->
+                <!-- pmd and findbugs depends on this to reference bug-producing code -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+                <version>2.3</version>
+            </plugin>
+        </plugins>
+    </reporting>
+
+</project>
